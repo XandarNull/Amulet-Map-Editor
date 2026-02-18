@@ -48,13 +48,6 @@ jobs:
       run: |
         python -m PyInstaller -y Amulet.spec
 
-    - name: Publish to PyPi
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.AMULET_MAP_EDITOR_PYPI_PASSWORD }}
-      run: |
-        twine upload dist/amulet[_-]map[_-]editor* --skip-existing
-
     - name: Upload Release Asset
       uses: actions/upload-artifact@v4
       with:
